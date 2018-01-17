@@ -210,7 +210,8 @@ module.exports = function(lando) {
           'io.lando.service-container': 'TRUE'
         },
         environment: {
-          LANDO_SERVICE_TYPE: 'proxy'
+          LANDO_SERVICE_TYPE: 'proxy',
+          DOCKER_HOST: 'tcp://localhost:2375'
         },
         networks: ['edge'],
         ports: [
@@ -219,7 +220,6 @@ module.exports = function(lando) {
           [proxyDash, 8080].join(':')
         ],
         volumes: [
-          '/var/run/docker.sock:/var/run/docker.sock',
           '/dev/null:/traefik.toml',
           '$LANDO_ENGINE_SCRIPTS_DIR/lando-entrypoint.sh:/lando-entrypoint.sh',
           '$LANDO_ENGINE_SCRIPTS_DIR/add-cert.sh:/scripts/add-cert.sh'
