@@ -69,7 +69,7 @@ case $FLAVOR in
 
     # Docker bin
     : ${DOCKER:="/usr/share/lando/bin/docker"}
-    export DOCKER_HOST=unix:///var/run/docker.sock
+    export DOCKER_HOST=tcp://docker:2375
 
     ;;
   fedora)
@@ -94,7 +94,7 @@ case $FLAVOR in
 
     # Docker bin
     : ${DOCKER:="/usr/share/lando/bin/docker"}
-    export DOCKER_HOST=unix:///var/run/docker.sock
+    export DOCKER_HOST=tcp://docker:2375
 
     ;;
   darwin)
